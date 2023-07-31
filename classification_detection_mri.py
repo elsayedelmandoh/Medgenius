@@ -21,7 +21,7 @@ from PIL import Image
 # Function to perform "classification" using the first model
 def predict_classification(image):
     # Load the classification model
-    classification_model = load_model('models/model_classification_mri.h5')
+    classification_model = load_model('model_classification_mri.h5')
 
     # Preprocess the image
     grayscale_image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
@@ -43,7 +43,7 @@ def predict_classification(image):
 def perform_detection(image):
     cfg = get_cfg()
     cfg.merge_from_file(model_zoo.get_config_file('COCO-Detection/retinanet_R_101_FPN_3x.yaml'))
-    cfg.MODEL.WEIGHTS = 'models/model_detection_mri.pth'
+    cfg.MODEL.WEIGHTS = 'model_detection_mri.pth'
     cfg.MODEL.DEVICE = 'cpu'
 
     predictor = DefaultPredictor(cfg)
