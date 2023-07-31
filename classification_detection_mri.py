@@ -2,7 +2,7 @@
 # For load classification model
 import cv2
 import numpy as np
-from tensorflow.keras.models import load_model
+import joblib
 
 # For load detection model
 from detectron2.config import get_cfg
@@ -21,7 +21,7 @@ from PIL import Image
 # Function to perform "classification" using the first model
 def predict_classification(image):
     # Load the classification model
-    classification_model = load_model('model_classification_mri.h5')
+    classification_model = joblib.load('model_classification_mri.h5')
 
     # Preprocess the image
     grayscale_image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
@@ -41,16 +41,10 @@ def predict_classification(image):
 
 # Function to perform 'detection' using the second model
 def perform_detection(image):
-    # Load the detection model weights from Amazon S3
-    model_url = 'https://model-detection-mri.s3.eu-north-1.amazonaws.com/model_detection_mri.pth'
-    model_path = 'model_detection_mri.pth'
-    with open(model_path, 'wb') as f:
-        response = requests.get(model_url)
-        f.write(response.content)
-        
     cfg = get_cfg()
     cfg.merge_from_file(model_zoo.get_config_file('COCO-Detection/retinanet_R_101_FPN_3x.yaml'))
-    cfg.MODEL.WEIGHTS = model_path
+    # 
+    cfg.MODEL.WEIGHTS = 'model_detection_mri.pth'
     cfg.MODEL.DEVICE = 'cpu'
 
     predictor = DefaultPredictor(cfg)
