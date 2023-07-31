@@ -41,9 +41,16 @@ def predict_classification(image):
 
 # Function to perform 'detection' using the second model
 def perform_detection(image):
+    # Load the detection model weights from Amazon S3
+    model_url = 'https://model-detection-mri.s3.eu-north-1.amazonaws.com/model_detection_mri.pth'
+    model_path = 'model_detection_mri.pth'
+    with open(model_path, 'wb') as f:
+        response = requests.get(model_url)
+        f.write(response.content)
+        
     cfg = get_cfg()
     cfg.merge_from_file(model_zoo.get_config_file('COCO-Detection/retinanet_R_101_FPN_3x.yaml'))
-    cfg.MODEL.WEIGHTS = 'model_detection_mri.pth'
+    cfg.MODEL.WEIGHTS = model_path
     cfg.MODEL.DEVICE = 'cpu'
 
     predictor = DefaultPredictor(cfg)
