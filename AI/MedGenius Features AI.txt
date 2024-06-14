@@ -1,0 +1,27 @@
+Ai detection rays
+classification ray to positive or negative and apply detection
+Artificial intelligence chatbot
+Medications and Specialization based on symptoms 
+Artificial intelligence human model 
+Medications and Specialization based on symptoms
+Artificial intelligence analyze 
+classification analysis to positive or negative and apply to diagnose 
+Artificial intelligence Speciality detector
+Detect symptoms and know the problem to send it to a doctor in the same field Appointment
+Order a consultation near you
+Detect the nearest hospitals and pharmacies to you 
+
+أشعة الكشف بالذكاء الاصطناعي
+تصنيف الأشعة إلى إيجابية أو سلبية وتطبيق الكشف
+روبوت الذكاء الاصطناعي
+الأدوية والتخصصات على أساس الأعراض
+الذكاء الاصطناعي نموذج الإنسان
+الأدوية والتخصصات على أساس الأعراض
+تحليل الذكاء الاصطناعي
+تحليل التصنيف إلى إيجابي أو سلبي وتطبيق التشخيص
+كاشف تخصص الذكاء الاصطناعي
+كشف الأعراض ومعرفة المشكلة لإرسالها إلى طبيب في نفس المجال
+ميعاد
+طلب استشارة
+بالقرب منك
+كشف أقرب المستشفيات والصيدليات لك
